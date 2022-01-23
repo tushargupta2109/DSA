@@ -22,19 +22,14 @@ public:
     {
         if (nums[i] <= nums[j])
         {
-            ans[k] = nums[j];
+            ans[k] = nums[j]*nums[j];
             j--;
         }
         else
         {
-            ans[k] = nums[i];
+            ans[k] = nums[i]*nums[i];
             i++;
         }
-    }
-
-    for (int k = 0; k < n; k++)
-    {
-        ans[k] *= ans[k];
     }
 
     return ans;
