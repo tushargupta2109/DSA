@@ -24,7 +24,6 @@ public:
             currptr = nextptr;
         }
         
-        head = prevptr;
-        return head;
+        return prevptr;
     }
 };
