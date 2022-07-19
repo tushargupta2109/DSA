@@ -2,22 +2,21 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         
-        vector<vector<int>> v(numRows);
-        
-        for(int i=0;i<numRows;i++){
-            
-            v[i].resize(i+1);
-            for(int j=0;j<i+1;j++){
-                
+        vector<vector<int>> ans(numRows);
+        for(int i=0;i<numRows;i++)
+        {
+            ans[i].resize(i+1);
+            for(int j=0;j<i+1;j++)
+            {
                 if(j==0 || j==i){
-                    v[i][j] = 1;
+                    ans[i][j] = 1;
                 }
                 else{
-                    v[i][j] = v[i-1][j-1] + v[i-1][j];
+                    ans[i][j] = ans[i-1][j-1] + ans[i-1][j];
                 }
             }
         }
         
-        return v;
+        return ans;
     }
 };
