@@ -2,18 +2,17 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         
-        int n= nums.size();
+        int prod1 = nums[0], prod2 = nums[0], temp, result = nums[0];
         
-        int ans = nums[0];
-        int max_till_now = nums[0], min_till_now=nums[0];
-        
-        for(int i=1;i<n;i++)
-        {
-            int temp = max({nums[i], max_till_now*nums[i], min_till_now*nums[i]});
-            min_till_now = min({nums[i], max_till_now*nums[i], min_till_now*nums[i]});
-            max_till_now = temp;
-            ans = max(ans, max_till_now);
+        for(int i=1;i<nums.size();i++){
+            
+            temp = max({nums[i], nums[i]*prod1, nums[i]*prod2});
+            prod2 = min({nums[i], nums[i]*prod1, nums[i]*prod2});
+            prod1 = temp;
+            
+            result = max(result, prod1);
         }
-        return ans;
+        
+        return result;
     }
 };
