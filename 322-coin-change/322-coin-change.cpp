@@ -4,8 +4,9 @@ public:
         
         int n = coins.size();
         vector<vector<int>> dp(n+1, vector<int> (amount+1, -1));
+        // vector<int> dp(amount+1, -1);
         
-        sort(coins.begin(), coins.end());
+        // sort(coins.begin(), coins.end());
         for(int i=0;i<=amount;i++){
             dp[0][i] = INT_MAX - 1; 
         }
